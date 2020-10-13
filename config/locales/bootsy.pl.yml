@@ -1,0 +1,27 @@
+pl:
+  bootsy:
+    action:
+      refresh: Odśwież
+      destroy: Usuń
+      close: Zamknij
+      load: Ładuj
+      upload: Prześlij obraz
+    image_gallery: Galeria
+    image:
+      s: Obraz
+      p: Obrazy
+      size: Rozmiar
+      large: Duży
+      medium: Średni
+      small: Mały
+      original: Oryginalny
+      new: Nowy obraz
+      confirm:
+        destroy: Czy na pewno chcesz usunąć ten obraz?
+      position:
+        left: Do lewej
+        right: Do prawej
+        inline: Pływający
+    no_images_uploaded: W tej chwili nie ma żadnych obrazów.
+    js:
+      alert_unsaved: Masz niezapisane dane.

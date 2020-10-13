@@ -22,6 +22,9 @@ rm -f /myapp/tmp/pids/server.pid
 # This has been set in container metadata, so let's keep it hardcoded
 export PORT=3000
 
+# Container native logging
+export RAILS_LOG_TO_STDOUT=true
+
 # Prepare DB
 err=0
 [ -z "DB_HOST" ] && "DB_HOST is mandatory" && err=1

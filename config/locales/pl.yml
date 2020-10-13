@@ -1,0 +1,187 @@
+# ----------------------
+# Organization of en.yml
+# ----------------------
+#
+# components.COMPONENT.* - component-specific strings
+# jobs.[MODULE].JOB.* - strings used by jobs
+# models.MODEL.COLUMN.* = translation of database values to display values
+# mutations.MUTATION.* = strings used by mutations
+# queries.QUERY.* = strings used by resolvers and mutators
+# shared.* - shared strings
+# CONTROLLER.ACTION.* = display_value
+#
+# CONTROLLER is always the plural version. For example: FoundersController#edit = founders.edit.*
+#
+# Order alphabetically where possible.
+#
+# Third-party library translations are at the end of this file, and they follow their own format.
+# Make sure you include links to documentation related to such third-party translations for when
+# we (undoubtedly) forget what the strings were for.
+
+en:
+  components:
+    CoachesIndex__Root:
+      heading: Coaches
+      filter_input_label: Filtruj
+      filter_input_placeholder: Szukaj nazwy lub wybierz kurs
+      filter_label_teaches_course: Prowadzi kurs
+      filter_label_name_like: Po nazwie
+      filter_search_string_course: "prowadzi kurs %{name}"
+      filter_result_empty: Nie znaleziono żadnego trenera. Spróbuj zmienić zapytanie.
+      button_connect: Połącz
+      button_about: Więcej
+    CommunitiesShow__Root:
+      all_categories_button: Wszystkie kategorie
+      empty_topics: Nie ma jeszcze żadnej dyskusji.
+      filter_input_label: "Filtruj po:"
+      filter_input_placeholder_default: Szukaj po tytule albo filtruj po rozwiązaniu
+      filter_input_placeholder_categories: Filtruj po kategorii lub rozwiązaniu albo szukaj po tytule
+      sort_criterion_input_label: "Sortuj po:"
+      sort_criterion_posted_at: Opublikowany
+      sort_criterion_last_activity: Ostatnie zmiany
+      sort_criterion_views: Wizyt
+      topic_stats_likes: Polubień
+      topic_stats_replies: Odpowiedzi
+      topic_stats_views: Wizyt
+      button_load_more: Więcej...
+      topics_fully_loaded_text: "Pokazuję wszystkie %{total_topics} tematów"
+      topics_partially_loaded_text: "Pokazuję %{loaded_topics_count} z %{total_topics} tematów"
+      topic_posted_by_text: Opublikowany przez
+      topic_last_updated_text: Ostatnie zmiany
+    CourseCertificates__Root:
+      auto_issue_tag: Auto-wystawianie
+      create_action: &certificate_create_action Utwórz Certyfikat Ukończenia
+      issued_count:
+        zero: Nie wystawiony
+        one: Wystawiony raz
+        other: "Wystawiony %{count} razy"
+      heading: Certyfikaty Ukończenia
+      no_certificates: Nie masz jeszcze żadnych certyfikatów!
+      edit_button_title: "Edytuj Certyfikat %{name}"
+      delete_button_title: "Usuń Certyfikat %{name}"
+    CourseCertificates__CreateDrawer:
+      create_action: *certificate_create_action
+      name_label: Nazwa
+      name_placeholder: Dane na certyfikacie
+      certificate_base_image_label: Tło certyfikatu
+      certificate_base_image_placeholder: Wybierz tło certyfikatu
+      success_notification: Możesz teraz edytować ten certyfikat.
+      create_button_text: Utwórz Certyfikat
+    CourseCertificates__EditDrawer:
+      edit_action: Edytuj Certyfikat
+      name_label: Nazwa
+      name_placeholder: Krótka nazwa certyfikatu
+      name_error: Nazwa nie może być pusta
+      margin_label: Margines
+      active_label: Czy studenci sami mogą wystawić sobie certyfikat?
+      active_help: While you can have multiple certificates, only one can be automatically issued; it will be issued when a student <em>completes</em> a course.
+      active_help: Jeśli masz wiele rodzajów certyfikatów tylko jeden może być wystawiany automatycznie. Zostanie on wystawiony, kiedy uczestnik <em>zakończy</em> kurs.
+      name_offset_top_label: Odstęp od nazwiska (od góry)
+      font_size_label: Wielkość czcionki
+      qr_visibility_label: Dodać kod QR?
+      qr_visibility_help: Kod będzie zawierał link do strony na której można zweryfikować autentyczność wystawionego certyfikatu.
+      qr_position_label: Pozycja kodu QR
+      qr_scale_label: Skala kodu QR
+      qr_hidden_label: Ukryj
+      qr_top_left_label: Lewa górna
+      qr_top_right_label: Prawa górna
+      qr_bottom_left_label: Lewa dolna
+      qr_bottom_right_label: Prawa dolna
+      update_issued_certificates_warning:
+        one: "Ten certyfikat był już raz wystawiony.<br/>Zmiany będą dotyczyć także wystawionego certyfikatu."
+        other: "Ten certyfikat był już wystawiony %{count} razy.<br/>Zmiany będą dotyczyć także do %{count} wystawionych certyfikatów."
+
+  jobs:
+    timeline_events:
+      verification_notification:
+        founder:
+          verified:
+            founder_event: "Twoje nowe wydarzenie (<%{event_url}|%{event_title}>) zostało zweryfikowane przez SV.CO"
+            startup_event: "Twoje nowe wydarzenie (<%{event_url}|%{event_title}>) dla <%{startup_url}|%{startup_name}> zostało zweryfikowane przez SV.CO"
+          needs_improvement:
+            founder_event: "Twoje nowe wydarzenie (<%{event_url}|%{event_title}>) otrzymało oznaczenie 'wymaga poprawek'. Opublikuj nowe wydarzenie korzystając z załączonych wskazówek"
+            startup_event: "Twoje nowe wydarzenie (<%{event_url}|%{event_title}>) dla <%{startup_url}|%{startup_name}> otrzymało oznaczenie 'wymaga poprawek'. Opublikuj nowe wydarzenie korzystając z załączonych wskazówek"
+          not_accepted:
+            founder_event: "Twoje nowe wydarzenie (<%{event_url}|%{event_title}>) zostało odrzucone. Opublikuj nowe wydarzenie korzystając z załączonych wskazówek"
+            startup_event: "Twoje nowe wydarzenie (<%{event_url}|%{event_title}>) dla <%{startup_url}|%{startup_name}> zostało odrzucone. Opublikuj nowe wydarzenie korzystając z załączonych wskazówek"
+        team:
+          verified: "Twój zespół <%{startup_url}|%{startup_name}> ma nowe zweryfikowane wydarzenie: <%{event_url}|%{event_title}>"
+          needs_improvement: "Your team <%{startup_url}|%{startup_name}> has a new timeline entry: (<%{event_url}|%{event_title}>) and has been marked as 'needs improvement'. Please submit a new and revised timeline event based on the feedback"
+          needs_improvement: "Twój zespół <%{startup_url}|%{startup_name}> ma nowe wydarzenie: (<%{event_url}|%{event_title}>) oznaczone jako 'wymaga poprawek'. Opublikuj nowe wydarzenie korzystając z załączonych wskazówek"
+          not_accepted: "Nowe zdarzenie (<%{event_url}|%{event_title}>) opublikowane przez Twój zespół <%{startup_url}|%{startup_name}> zostało odrzucone. Opublikuj nowe wydarzenie korzystając z załączonych wskazówek"
+        public:
+          verified: &jobs-timeline_events-verification_notification-public-verified |
+            <%{startup_url}|%{startup_name}> ma nowe zweryfikowane zdarzenie: <%{event_url}|%{event_title}>
+            *Opis:* %{event_description}
+            %{links_attached_notice}
+          needs_improvement: *jobs-timeline_events-verification_notification-public-verified
+
+    targets:
+      send_session_reminders:
+        message: 'Przypomnienie: "%{title}" zacznie się za %{time_delta} (o %{time_exact}). Nie zapomnij dołączyć do sesji!'
+      send_session_feedback_notification:
+        message: |
+          Cześć! Dziękuję wszystkim, którzy brali dzisiaj udział w sesji na żywo %{faculty_name}.
+
+          Mam nadzieję, że udział w sesji był dla Ciebie owocny.
+
+          W przypadku przegapienia sesji jej zapis będzie dostępny w ciągu kilku dni na platformie.
+
+          Proszę wypełnij krótką ankietę aby pomóc nam uczynić nasze sesje jeszcze lepszymi: https://svlabs.typeform.com/to/h7g9Om?faculty=%{faculty_name_escaped}&session=%{session_title}&date=%{session_date}
+
+  models:
+    faculty:
+      commitment:
+        part_time: Niepełny Etat
+        full_time: Pełny Etat
+
+    target:
+      role:
+        team: Zespół
+        founder: Właściciel
+
+  mutations:
+    update_certificate:
+      success_notification: Certyfikat został zaktualizowany.
+    delete_certificate:
+      success_notification: Certyfikat został usunięty.
+
+  queries:
+    delete_certificate_mutator:
+      issued_error: Certyfikat był już wystawiany - nie można usunąć.
+
+  shared:
+    optional: opcjonalne
+    done_exclamation: Zrobione!
+    cancel: Anuluj
+    close: Zamknij
+    save_changes: Zapisz
+    saving: Zapisuję...
+    image_file_invalid: Wybierz obraz (PNG, JPEG, GIF) o wielkości nie większej niż 5 MB, i wysokości/szerokości nie większej niż 4096 pikseli.
+    file_invalid: Wybierz plik o wielkości nie większej niż 5 MB.
+
+  dashboard:
+    dashboard:
+      tour:
+        intro: Witaj na Twojej osobistej stronie! Tutaj będą wyświetlane postępy Twojej grupy.
+        level_select: Kurs został podzielony na kilka etapów. Nowe etapy zostaną odblokowane, kiedy otrzymasz <em>zalicznenie</em> bieżących celów dla każdego poziomu.<br/><br/>Możesz w każdej chwili wrócić do poprzednich poziomów i poprawić swoje wyniki, jak również przeglądać cele kolejnych poziomów, jednakże cele przyszłych poziomów będzie można zrealizować dopiero, kiedy zostaną odblokowane.
+        target_group: Lista Twoich celów będzie zawierać wszystkie cele wraz z ich aktualnym statusem.
+        target: Panel celów będzie zawierał nazwę celu oraz jego status. Po kliknięciu celu otrzymasz kompletne informacje na temat statusu oraz przycisk do wysłania zaliczenia.
+        target_status: To oznaczenie pokazuje aktualny status celu.
+        final_message: To tyle na tę chwilę. Jeśli masz wątpliwości, nie wahaj się pytać!<br/><br/>Powodzenia!
+
+  resources:
+    index:
+      zero_results: Biblioteka nie zawiera publicznie dostępnych zasobów. Zasoby prywatne wyświetlane są po zalogowaniu.
+      filter_zero_results: Bilbioteka nie zawiera zasobów pasujących do bieżącego filtra. Spróbuj go usunąć lub zmodyfikować.
+      filter_notice: Biblioteka jest wyświetlana w trybie wyszukiwania. Wyczyść filtr, aby zobaczyć wszystkie dostępne zasoby.
+
+  ####################################
+  # THIRD-PARTY LIBRARY TRANSLATIONS #
+  ####################################
+
+  # These are custom error messages for the active_storage_validations gem.
+  errors:
+    messages:
+      content_type_invalid: "ma nieprawidłowy typ danych"
+      limit_out_of_range: "limit poza zakresem"
