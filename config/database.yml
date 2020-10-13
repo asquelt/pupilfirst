@@ -15,4 +15,5 @@ test:
 
 production:
   <<: *common
+  database: <%= ENV['DB_NAME'] %>
   pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
